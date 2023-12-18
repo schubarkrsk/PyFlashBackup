@@ -1,0 +1,7 @@
+# IDE and Python dirs
+.idea/
+.venv/
+
+# PyInstaller dirs
+build/
+dist/
