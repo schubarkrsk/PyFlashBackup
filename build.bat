@@ -9,7 +9,7 @@ set /p build_choice=Now please select which variant you need:
 
 if "%build_choice%"=="1" (
   pyinstaller -F pyflashbackup.py
-) elif "%build_choice%"=="2" (
+) else if "%build_choice%"=="2" (
   pyinstaller -F --noconsole pyflashbackup.py
 ) else (
   echo Incorrect choice!
