@@ -5,3 +5,4 @@
 # PyInstaller dirs
 build/
 dist/
+pyflashbackup.spec
