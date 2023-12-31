@@ -14,10 +14,9 @@ if not os.path.exists(APP_HOME):
 
 CONFIG_FILE = os.path.join(APP_HOME, "pfb_config.ini")
 
-# Если конфигурационный файл не существует, создаем его с настройками по умолчанию
 if not os.path.exists(CONFIG_FILE):
     config = ConfigParser()
-    config.optionxform = str  # отключаем преобразование ключей в нижний регистр
+    config.optionxform = str
     config["BackupConfig"] = {
         "source_path": "",
         "destination_path": str(APP_HOME),
@@ -30,14 +29,14 @@ if not os.path.exists(CONFIG_FILE):
 
 # Загружаем конфигурацию
 config = ConfigParser()
-config.optionxform = str  # отключаем преобразование ключей в нижний регистр
+config.optionxform = str
 config.read(CONFIG_FILE)
 
 # Получаем значения из конфигурации
 source_path = config.get("BackupConfig", "source_path")
 destination_path = config.get("BackupConfig", "destination_path")
 exclude_files = [pattern.strip() for pattern in config.get("BackupConfig", "exclude_files").split(",")]
-exclude_directories = [dir.strip() for dir in config.get("BackupConfig", "exclude_directories").split(",")]
+exclude_directories = [directory.strip() for directory in config.get("BackupConfig", "exclude_directories").split(",")]
 
 # Настройка логирования
 logging.basicConfig(filename=os.path.join(APP_HOME, "backup_log.txt"), level=logging.INFO)
